@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -37,6 +38,12 @@ public class AppUserLoging implements Serializable {
 
     @Column(name = "ROLE", nullable = false)
     private String role;
+    @ManyToMany
+    private Collection<AppUserRole> roles;
+    @OneToOne
+    private AppUserPassword appUserPassword;
+    @OneToOne
+    private Collaborateur collaborateur;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS", nullable = false)

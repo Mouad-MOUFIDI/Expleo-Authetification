@@ -1,8 +1,10 @@
 package ma.expleo.domain;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -14,37 +16,41 @@ public class UserExpleoDetails implements UserDetails {
     private AppUserLoging appUserLoging;
 
     public UserExpleoDetails(AppUserLoging appUserLoging){
-        this.appUserLoging = appUserLoging;
+        this.appUserLoging=appUserLoging;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<GrantedAuthority> authorities=new ArrayList<>();
+        for (AppUserRole role : appUserLoging.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+        }
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return appUserLoging.getAppUserPassword().getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return appUserLoging.getUserNameLogging();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
@@ -52,7 +58,7 @@ public class UserExpleoDetails implements UserDetails {
         if( this.appUserLoging.getStatus() != ActivationStatus.ACTIVE) {
             return false;
         }
-        if( this.appUserLoging.getPassword() == null ){
+        if( this.appUserLoging.getAppUserPassword().getPassword() == null ){
             return false;
         }
         return true;

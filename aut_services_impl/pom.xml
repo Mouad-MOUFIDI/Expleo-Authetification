@@ -16,5 +16,17 @@
     <packaging>jar</packaging>
     <version>${soa-aut-service}</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>ma.expleo</groupId>
+            <artifactId>aut_services_domains</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>ma.expleo.rh</groupId>
+            <artifactId>aut_services_api</artifactId>
+            <version>${soa-aut-service}</version>
+        </dependency>
+    </dependencies>
 
 </project>

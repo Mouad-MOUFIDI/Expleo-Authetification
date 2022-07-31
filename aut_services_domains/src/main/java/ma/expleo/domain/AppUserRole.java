@@ -6,6 +6,9 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 
 /**
  * @author Merouane GUELLIL
@@ -26,6 +29,19 @@ public class AppUserRole implements GrantedAuthority {
 
     @Column(name = "ROLE_NAME", nullable = false, unique = true)
     private String roleName;
+
+    @Column(name = "DATE_CREATED_ROLE",nullable = false)
+    private Date dateCreatedRole;
+
+    @Column(name = "ROLE_DESCRIPTION",nullable = false)
+    private String roleDescription;
+
+    @ManyToMany
+    private Collection<AppUserLoging> users;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Permissions> permissions = new ArrayList<>();
+
     @Override
     public String getAuthority() {
         return this.getRoleName();

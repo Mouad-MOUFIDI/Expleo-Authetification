@@ -15,8 +15,6 @@
     <packaging>pom</packaging>
     <version>${revision}</version>
 
-
-
     <modules>
         <module>aut_services_api</module>
         <module>aut_services_impl</module>
