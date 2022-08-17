@@ -4,4 +4,4 @@
  * Spring Framework configuration files.
  */
 
-package ma.expleo.applicaion;
+package ma.expleo.application;

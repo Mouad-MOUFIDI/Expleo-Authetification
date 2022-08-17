@@ -19,7 +19,7 @@ import java.util.Date;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "ID")
-@Table(name = "APP_ROLE", uniqueConstraints = {@UniqueConstraint(columnNames = {"AUTHORITY_NAME"})})
+@Table(name = "APP_ROLE", uniqueConstraints = {@UniqueConstraint(columnNames = {"ROLE_NAME"})})
 
 public class AppUserRole implements GrantedAuthority {
 

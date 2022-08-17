@@ -11,18 +11,19 @@ import java.util.Date;
  * Created on 18/05/2022
  */
 @Entity
-@Table(name = "APP_USER_PASSWORD", uniqueConstraints = {@UniqueConstraint(columnNames = {"USER_NAME_LOGGING"})})
+@Table(name = "APP_USER_PASSWORD", uniqueConstraints = {@UniqueConstraint(columnNames = {"PASSWORD"})})
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(of = "ID")
 @Builder(toBuilder = true)
+
 public class AppUserPassword implements Serializable {
     @Id
-    @Column(name = "ID_PASSWORD", nullable = false)
+    @Column(name = "ID_PASSWORD", nullable = true)
     private Long id;
 
-    @Column(name = "PASSWORD", nullable = false)
+    @Column(name = "PASSWORD", nullable = true)
     private String password;
 
     @Column(name = "OLD_PASSWORD", nullable = false)
@@ -31,7 +32,7 @@ public class AppUserPassword implements Serializable {
     @Column(name = "DATE_CHANGE_PASSWORD", nullable = false)
     private Date dateChangePassword;
 
-    public AppUserPassword(String password) {
-        this.password=password;
-    }
+    @Column(name = "DATE_CREATE_PASSWORD", nullable = true)
+    private Date dateCreatePassword;
+
 }

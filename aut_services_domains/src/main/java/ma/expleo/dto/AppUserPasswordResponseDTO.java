@@ -16,4 +16,5 @@ public class AppUserPasswordResponseDTO {
     private String password;
     private String oldPassword;
     private Date dateChangePassword;
+    private Date dateCreatePassword;
 }

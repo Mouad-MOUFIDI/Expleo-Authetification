@@ -12,7 +12,10 @@ import java.util.Date;
  * Created on 13/05/2022
  */
 @Entity
-@Table(name = "APP_USER_LOGGING", uniqueConstraints = {@UniqueConstraint(columnNames = {"USER_NAME_LOGGING"})})
+@Table(name = "APP_USER_LOGGING", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"USER_NAME_LOGGING"}),
+        @UniqueConstraint(columnNames = "USER_MAIL")
+})
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -22,10 +25,11 @@ public class AppUserLoging implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long ID;
+    @Column(name = "ID_USER_LOGGING", nullable = false)
+    private Long ID;
 
     @Column(name = "USER_NAME_LOGGING", unique = true, nullable = false)
-    private String userNameLogging;
+    private String userNameLoging;
 
     @Column(name = "USER_MAIL", nullable = false)
     private String userMail;
@@ -38,10 +42,13 @@ public class AppUserLoging implements Serializable {
 
     @Column(name = "ROLE", nullable = false)
     private String role;
+
     @ManyToMany
     private Collection<AppUserRole> roles;
+
     @OneToOne
     private AppUserPassword appUserPassword;
+
     @OneToOne
     private Collaborateur collaborateur;
 

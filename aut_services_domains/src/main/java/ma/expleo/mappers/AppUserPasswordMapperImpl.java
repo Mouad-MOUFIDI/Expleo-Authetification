@@ -21,6 +21,7 @@ public class AppUserPasswordMapperImpl implements AppUserPasswordMapper {
         appUserPasswordResponseDTO.setPassword(appUserPassword.getPassword());
         appUserPasswordResponseDTO.setOldPassword(appUserPassword.getOldPassword());
         appUserPasswordResponseDTO.setDateChangePassword(appUserPassword.getDateChangePassword());
+        appUserPasswordResponseDTO.setDateCreatePassword(appUserPassword.getDateCreatePassword());
         return appUserPasswordResponseDTO;
     }
 

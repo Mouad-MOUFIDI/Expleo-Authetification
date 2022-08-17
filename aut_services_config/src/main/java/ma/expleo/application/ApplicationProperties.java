@@ -1,4 +1,4 @@
-package ma.expleo.applicaion;
+package ma.expleo.application;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

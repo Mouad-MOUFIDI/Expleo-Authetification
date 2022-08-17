@@ -35,7 +35,7 @@ public class UserExpleoDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return appUserLoging.getUserNameLogging();
+        return appUserLoging.getUserNameLoging();
     }
 
     @Override

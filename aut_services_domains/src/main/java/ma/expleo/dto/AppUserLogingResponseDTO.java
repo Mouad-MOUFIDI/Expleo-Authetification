@@ -18,7 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class AppUserLogingResponseDTO {
     private long ID;
-    private String userNameLogging;
+    private String userNameLoging;
     private String userMail;
     private Date lastLogin;
     private Boolean admin = new Boolean(false);

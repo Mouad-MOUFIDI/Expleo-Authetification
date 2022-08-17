@@ -19,7 +19,7 @@ public class AppUserLogingMapperImpl implements AppUserLogingMapper {
         AppUserLogingResponseDTO appUserLogingResponseDTO= beanFactory.getBean(AppUserLogingResponseDTO.class);
         appUserLogingResponseDTO.setID(appUserLoging.getID());
         appUserLogingResponseDTO.setLastLogin(appUserLoging.getLastLogin());
-        appUserLogingResponseDTO.setUserNameLogging(appUserLoging.getUserNameLogging());
+        appUserLogingResponseDTO.setUserNameLoging(appUserLoging.getUserNameLoging());
         appUserLogingResponseDTO.setAdmin(appUserLoging.getAdmin());
         appUserLogingResponseDTO.setUserMail(appUserLoging.getUserMail());
         appUserLogingResponseDTO.setStatus(appUserLoging.getStatus());
@@ -30,7 +30,7 @@ public class AppUserLogingMapperImpl implements AppUserLogingMapper {
     @Override
     public AppUserLoging AppUserLogingRequestDTOToAppUserLoging(AppUserLogingRequestDTO appUserLogingRequestDTO) {
         AppUserLoging appUserLoging=beanFactory.getBean(AppUserLoging.class);
-        appUserLoging.setUserNameLogging(appUserLogingRequestDTO.getUserNameLoging());
+        appUserLoging.setUserNameLoging(appUserLogingRequestDTO.getUserNameLoging());
         return appUserLoging;
     }
 }

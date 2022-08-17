@@ -67,4 +67,5 @@ public class mapperBeans {
     public PermissionsResponseDTO permissionsResponseDTOBean() {
         return new PermissionsResponseDTO();
     }
+
 }

@@ -1,4 +1,4 @@
-package ma.expleo.applicaion;
+package ma.expleo.application;
 
 /**
  * @author Merouane GUELLIL

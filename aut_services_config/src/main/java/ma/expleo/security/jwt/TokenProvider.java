@@ -2,10 +2,12 @@ package ma.expleo.security.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.jackson.io.JacksonSerializer;
+import io.jsonwebtoken.io.JacksonSerializer;
+import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import ma.expleo.management.SecurityMetersService;
+import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -81,7 +83,7 @@ public class TokenProvider {
             .builder()
             .setSubject(authentication.getName())
             .claim(AUTHORITIES_KEY, authorities)
-            .signWith(key, SignatureAlgorithm.HS512)
+            .signWith(SignatureAlgorithm.HS512, key)
             .setExpiration(validity)
             .serializeToJsonWith(new JacksonSerializer<>())
             .compact();

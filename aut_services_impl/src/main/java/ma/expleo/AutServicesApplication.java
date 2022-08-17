@@ -34,9 +34,7 @@ public class AutServicesApplication {
                     .roleName("USER")
                     .roleDescription("Description of the user role")
                     .build());
-//			Stream.of("user1","user2","user3","admin").forEach(un->{
-//				accountService.saveAppUserLoging(un,"1234","1234","registration");
-//			});
+
             permissionService.savePermissions(PermissionsRequestDTO.builder()
                     .namePermission("permission1")
                     .descriptionPermission("description1")
